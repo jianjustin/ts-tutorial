@@ -25,3 +25,9 @@ for (let book of books) {
     }
 }
 console.log(`found book ${foundbook?.toLowerCase()}`)
+
+let car: {brand: string; year: number} = {brand:"tesla", year: 2020}
+car.toString = function ()   {
+    return `year:${this.year},brand:${this.brand}`
+}
+console.log(`car is ${car}`)
