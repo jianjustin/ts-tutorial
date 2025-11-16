@@ -1,0 +1,12 @@
+{
+  "name": "math-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.0"
+  }
+}
