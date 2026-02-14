@@ -1,44 +1,48 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": false,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    /* 语言和环境 */
+    "target": "ES2020",                          // 编译目标：现代JavaScript
+    "lib": ["ES2020"],                           // 包含的API：ES2020标准库
+    
+    /* 模块 */
+    "module": "commonjs",                        // 模块系统：Node.js使用CommonJS
+    "rootDir": "./src",                          // 源代码根目录
+    "moduleResolution": "node",                  // 模块解析策略：Node.js方式
+    "baseUrl": "./src",                          // 模块导入的基础路径
+    
+    /* 输出 */
+    "outDir": "./dist",                          // 编译输出目录
+    "sourceMap": true,                           // 生成source map用于调试
+    "removeComments": true,                      // 移除注释
+    
+    /* 类型检查 */
+    "strict": true,                              // 启用所有严格类型检查
+    "noImplicitAny": true,                       // 不允许隐式any类型
+    "strictNullChecks": true,                    // 严格的null检查
+    "strictFunctionTypes": true,                 // 严格的函数类型检查
+    "strictPropertyInitialization": true,        // 类属性必须初始化
+    "noImplicitThis": true,                      // this必须有明确类型
+    "alwaysStrict": true,                        // 总是以严格模式解析
+    
+    /* 额外检查 */
+    "noUnusedLocals": true,                      // 不允许未使用的局部变量
+    "noUnusedParameters": true,                  // 不允许未使用的参数
+    "noImplicitReturns": true,                   // 函数必须有返回值（如果声明了）
+    "noFallthroughCasesInSwitch": true,          // switch必须有break
+    
+    /* 其他 */
+    "esModuleInterop": true,                     // 支持CommonJS和ES模块互操作
+    "skipLibCheck": true,                        // 跳过.d.ts文件检查（加快编译）
+    "forceConsistentCasingInFileNames": true,    // 强制文件名大小写一致
+    "resolveJsonModule": true,                   // 允许导入JSON文件
+    "experimentalDecorators": true,              // 启用装饰器（可选功能）
+    "emitDecoratorMetadata": true                // 发出装饰器元数据
+  },
+  "include": [
+    "src/**/*"                                   // 包含src目录下所有文件
+  ],
+  "exclude": [
+    "node_modules",                              // 排除node_modules
+    "dist"                                       // 排除编译输出目录
+  ]
 }

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "张三",
+    "age": 28,
+    "email": "zhangsan@example.com",
+    "role": "developer",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "李四",
+    "age": 32,
+    "email": "lisi@example.com",
+    "role": "designer",
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "王五",
+    "age": 25,
+    "email": "wangwu@example.com",
+    "role": "developer",
+    "active": false
+  },
+  {
+    "id": 4,
+    "name": "赵六",
+    "age": 35,
+    "email": "zhaoliu@example.com",
+    "role": "manager",
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "孙七",
+    "age": 29,
+    "email": "sunqi@example.com",
+    "role": "developer",
+    "active": true
+  }
+]
