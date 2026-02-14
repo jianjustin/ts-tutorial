@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ES2017",
-    "module": "esnext",        // 或 "es2020" 等
-    "moduleResolution": "node", // 或 "node16"/"bundler" 看你场景
-    "outDir": "dist"
-  }
-}
