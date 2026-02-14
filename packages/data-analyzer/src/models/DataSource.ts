@@ -64,6 +64,8 @@ export abstract class DataSource<T> {
         return FileType.CSV;
       case 'json':
         return FileType.JSON;
+      case 'xml':
+        return FileType.XML;
       default:
         return FileType.UNKNOWN;
     }

@@ -1,0 +1,18 @@
+<sales>
+    <sale>
+      <id>1</id>
+      <product>Laptop</product>
+      <category>电子产品</category>
+      <price>1200</price>
+      <quantity>5</quantity>
+      <date>2024-01-15</date>
+    </sale>
+    <sale>
+      <id>2</id>
+      <product>Phone</product>
+      <category>电子产品</category>
+      <price>800</price>
+      <quantity>10</quantity>
+      <date>2024-01-16</date>
+    </sale>
+  </sales>

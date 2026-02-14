@@ -11,6 +11,7 @@
 import { CsvReader } from './readers/CsvReader';
 import { JsonReader } from './readers/JsonReader';
 import { createAnalyzer } from './analyzers/DataAnalyzer';
+import { XmlReader } from './readers/XmlReader';
 import { Report } from './models/Report';
 import { FileType, SortOrder } from './types';
 import { detectFileType } from './utils/helpers';
@@ -44,6 +45,8 @@ async function main() {
       await analyzeSalesData(filePath);
     } else if (fileType === FileType.JSON) {
       await analyzeUserData(filePath);
+    } else if (fileType === FileType.XML) {
+      await analyzeSalesDataWithXml(filePath);
     } else {
       console.error('❌ 不支持的文件类型');
       console.log('   支持的格式: .csv, .json\n');
@@ -180,6 +183,37 @@ async function analyzeUserData(filePath: string) {
     console.log(`   ${role}: ${userList.length}人, 平均年龄: ${avgAge.toFixed(1)}岁`);
   }
   console.log('');
+}
+
+async function analyzeSalesDataWithXml(filePath: string) {
+  console.log('📂 分析 XML 格式的销售数据...\n');
+  
+  // 1. 读取数据
+  const reader = new XmlReader(filePath);
+  const sales = await reader.load();
+  console.log(`✅ 读取到 ${sales.length} 条销售记录\n`);
+
+  // 2. 创建分析器并进行分析
+  const analyzer = createAnalyzer(sales);
+
+  // 示例：分析电子产品销售
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('📊 XML 示例：电子产品销售分析');
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+
+  const electronicsResult = analyzer
+    .reset(sales) // 重置数据
+    .filterBy('category', '电子产品')
+    .sortBy('price', SortOrder.DESC)
+    .analyze({
+      price: 'sum',
+      quantity: 'sum'
+    });
+
+  const electronicsReport = new Report(electronicsResult, {
+    title: 'XML 电子产品销售报告'
+  });
+  electronicsReport.print();
 }
 
 main().catch(error => {
